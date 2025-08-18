@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+         h1, h4, h2{
+            font-weight:200;
+        }
+        h4 {
+            font-weight: 400;
+        }
+
+         .img-wrapper {
+  height:350px; /* Choose a fixed height that fits your layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+        .text-box {
+            width: 50%;
+            background:none;
+            padding: 10px;
+            border-radius: 10px;
+            transform: translateY(-100px);
+        }
+
+        .text-box h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .text-box p {
+            font-size: 1.2rem;
+        }
+        img {
+            border-radius: 10px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #ffffffdc;
+            font-weight: 300;
+            font-size: medium;
+            padding: 8px 15px;
+            background: #ff295717;
+            border-radius: 30px;
+            
+        }
+        a:hover {
+            padding: 8px 15px;
+            border-radius: 30px;
+           background-color: #fc036b;
+            text-decoration: underline;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .active, ul {
+            list-style: none;
+            color: whitesmoke;
+        }
+        .line {
+            width: 150px;
+            height: 4px;
+            background: #fc036b;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+        img.right  {
+            height:70%;
+            width:95%;
+        }
+
+        .active {
+            color:#fc036b;
+            text-decoration: underline;
+            font-weight: bold;
+            list-style: none;
+        }
+        .navbar {
+            display:flex;
+            position: fixed;
+            top: -50px;
+            left: 0;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 20px;
+            color: whitesmoke;
+            align-items: center;
+        }
+        .nav-links li {
+            margin: 0 30px;
+            color: #fc036b;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        .ctn {
+            padding:  8px 15px;
+            background: #fc036b;
+            border-radius: 30px;
+            color: whitesmoke;
+        }
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s;
+          }
+          
+          h1 {
+            font-size: 7vmin;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        .menu-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            cursor: pointer;
+            display: none;
+        }
+          @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 } 
+            to { bottom:0px; opacity:1 }
+          }
+          
+          @keyframes animatebottom { 
+            from{ bottom:-100px; opacity:0 } 
+            to{ bottom:0; opacity:1 }
+          }
+          
+          #myDiv {
+            display: none;
+            text-align: center;
+          }
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 120px;
+            height: 120px;
+            margin: -76px 0 0 -76px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+          }
+          
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+          
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        .hero {
+            height: 100vh;
+            width: 100vw;
+            background: url('./KimHomePage.avif') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .full-bg {
+            height: 100vh;
+            width: 100vw;
+            background: url('./Explore.avif') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+           
+           
+            color: white;
+        }
+        
+
+        @media only screen and (max-width:700px){
+            .header-content {
+                margin-top: 250px;
+            }
+            .text-box {
+                width: 60%;
+                height: 40%;
+            }
+            .menu-btn {
+                display: block;
+                top:60px;
+                right:0;
+            }
+            
+            .navbar {
+                padding: 0;
+                align-items: center;
+                justify-content: space-between;
+                position: fixed;
+            }
+            .logo {
+                font-weight: 200;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                color: black;
+            }
+           
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                justify-content: center;
+                background: #262a4e;
+                margin-top: -900px;
+                transition: all 0.5s ease;
+                border-bottom-right-radius: 30%;
+            }
+            .mobile-menu {
+                margin-top: 0px;
+                margin-left: 40px;
+                margin-right: 35px;
+            }
+            .nav-links.mobile-menu {
+                margin-top: 0;
+                border-bottom-right-radius: 30%
+            }
+            .nav-links li {
+                margin:30px auto;
+            }
+            /* Events*/
+            .row {
+                flex-direction: column;
+            }
+            .col img {
+                max-width: 90%;
+                height: 90%;
+            }
+            .row .col {
+                margin:20px auto;
+            }
+           
+        
+           
+           
+            .footer {
+                padding: 10px;
+            }
+        }
+        
+        /* Animations */
+        img {
+            transition: transform .3s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        .ctn:hover {
+            background: whitesmoke;
+            color: #fc036b;
+            box-shadow: 2px 2px 5px black;
+        }
+        
+        li:hover {
+            color: #fc036b;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<!--Loader-->
+<body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+        
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+    <!--Navbar Below-->
+
+    <nav class="navbar">
+        <h1 class="logo">KM</h1>
+        <ul class="nav-links">
+            <li class="active"><a href="#">HOME</a></li>
+            <li><a href="../About/About.html">ABOUT</a></li>
+            <li><a href="../Exhibitions/Exhibitions.html">EXHIBITIONS</a></li>
+            <li><a href="../Collage/collage1.html">COLLECTIONS</a></li>
+            <li><a class="ctn" href="../Blog/Blog.html">ARTICLES</a></li>
+        </ul>
+        <img src="./menu.png" alt="menu" class="menu-btn">
+    </nav>
+    <!-- Section 1: Hero Section -->
+    
+    <section class="hero">
+        <div class="explore-text">
+            <h2 class="explore-sent">Explore the colourful World!</h2>
+            <div class="line"></div>
+            <h1>A WONDERFUL GIFT</h1>
+            <a href="../Collage/collage1.html" class="ctn">Learn More</a>
+        </div>
+    </section>
+    
+    <!-- Section 2: Two Image Columns -->
+    <section class="container">
+        <h1 class="text-center">RECENT EXHIBITIONS</h1>
+        <div class="line"></div>
+        <div class="row">
+            <div class="col-md-6 mb-3"><img src="./KH_Seizing The Day.avif" class="img-fluid" alt="Image 1">
+                <h4>Seizing The Day - West Palm Beach, Florida, USA</h4>
+            <p>Goddess- figures appear within luscious woven landscapes, their bodies wrapped in boldly patterned fabrics and embellished with golden jewellery.</p>
+                <a href="../Exhibitions/Seizing the day.html" class="ctn">Learn More</a>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+                
+                <img src="./Investec_Art Fair.avif" class="img-fluid right" alt="Image 2">
+                
+                <h4>Investec Art Fair - Cape Town</h4>
+            <p>Africa's largest art fair. It offers a platform for galleries, collectors and artists from around the globe.</p>
+            
+                <a href="../Exhibitions/Investec.html" class="ctn">Learn More</a>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Section 3: Background Image with Bottom Left Text -->
+    <section class="full-bg">
+        <div class="text-box">
+            <h1>EXPLORE HER WORLD</h1>
+            <div class="line"></div>
+            <p>Kimathi Mafafo was finalist for the Ares Art Prize (2022) and the recipient of the Norval Foundation Sovereign Art Prize (2022).</p>
+        <a href="../Blog/Blog.html" class="ctn">Learn More</a>
+        </div>
+    </section>
+
+    <script>
+        let myVar;
+        
+        function myFunction() {
+          myVar = setTimeout(showPage, 0);
+        }
+        
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+        }
+        </script>
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn')
+        const navlinks = document.querySelector('.nav-links')
+    
+        menuBtn.addEventListener('click',()=>{
+            navlinks.classList.toggle('mobile-menu')
+        
+        })
+       </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seizing The Day</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-weight:200;
+        }
+        .logo {
+            
+            color: black;
+        }
+        h1, h4, h2, h3{
+            font-weight:200;
+        }
+        .img-wrapper {
+  height:350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+        a {
+            text-decoration: none;
+            color: #ffffffdc;
+            font-weight: 300;
+            font-size: medium;
+            padding: 8px 15px;
+            background: #ff295717;
+            border-radius: 30px;
+            
+        }
+        a:hover {
+            padding: 8px 15px;
+            border-radius: 30px;
+           background-color: #fc036b;
+            text-decoration: underline;
+            font-weight: bold;
+            font-style: italic;
+        }
+        .active, ul {
+            list-style: none;
+            color: whitesmoke;
+        }
+        .line {
+            width: 150px;
+            height: 4px;
+            background: #fc036b;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        
+        .active {
+            color:#fc036b;
+            text-decoration: underline;
+            font-weight: bold;
+            list-style: none;
+        }
+        .navbar {
+            display:flex;
+            position: fixed;
+            top: 0;
+            z-index:1000;
+            left: 0;
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: 20px;
+            color: whitesmoke;
+            align-items: center;
+        }
+        .nav-links li {
+            margin: 0 30px;
+            color: #fc036b;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .ctn {
+            padding:  8px 15px;
+            background: #fc036b;
+            border-radius: 30px;
+            color: whitesmoke;
+        }
+        .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s;
+          }
+          
+        .menu-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 } 
+            to { bottom:0px; opacity:1 }
+          }
+          
+          @keyframes animatebottom { 
+            from{ bottom:-100px; opacity:0 } 
+            to{ bottom:0; opacity:1 }
+          }
+          
+          #myDiv {
+            display: none;
+            text-align: center;
+          }
+        #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 120px;
+            height: 120px;
+            margin: -76px 0 0 -76px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+          }
+
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+          
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        
+        
+
+        @media only screen and (max-width:700px){
+
+            .menu-btn {
+                display: block;
+                top:20px;
+                right:0;
+            }
+            
+            .navbar {
+                position: fixed;
+                padding: 0;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                font-weight: 200;
+                position: absolute;
+                top: 5px;
+                left: 10px;
+                color: black;
+            }
+           
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                justify-content: center;
+                background: #262a4e;
+                margin-top: -900px;
+                transition: all 0.5s ease;
+                border-bottom-right-radius: 30%;
+            }
+            .mobile-menu {
+                margin-top: 0px;
+                margin-left: 40px;
+                margin-right: 35px;
+            }
+            .nav-links.mobile-menu {
+                margin-top: 0;
+                border-bottom-right-radius: 30%
+            }
+            .nav-links li {
+                margin:30px auto;
+            }
+
+            .footer {
+                padding: 10px;
+            }
+        }
+        
+        .ctn:hover {
+            background: whitesmoke;
+            color: #fc036b;
+            box-shadow: 2px 2px 5px black;
+        }
+        
+        li:hover {
+            color: #fc036b;
+            cursor: pointer;
+        }
+        
+        .carousel-item img {
+            align-items:center;
+            justify-content: center;
+            border-radius: 10px;
+            transform:translateY(50px);
+            height: 500px;
+            object-fit:contain;
+            width: 80%;
+
+        }
+
+    
+        .gallery-container {
+            padding: 50px 0;
+        }
+
+        .gallery-item {
+            padding-bottom:10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-weight:200;
+            padding-top: 10px;
+        }
+
+        
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 500px) {
+            .col-md-3 {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+
+        <nav class="navbar">
+            <h1 class="logo">KM</h1>
+            <ul class="nav-links">
+                <li class="active"><a href="../../Home/Home.html">HOME</a></li>
+                <li><a href="../../About/About.html">ABOUT</a></li>
+                <li><a href="../../Exhibitions/Exhibitions.html">EXHIBITIONS</a></li>
+                <li><a href="../../Collage/collage1.html">COLLECTIONS</a></li>
+                <li><a class="ctn" href="../../Blog/Blog.html">ARTICLES</a></li>
+            </ul>
+            <img src="../menu.png" alt="menu" class="menu-btn">
+        </nav>
+
+     <!-- Slideshow Section -->
+    <div id="imageCarousel" class="carousel slide py-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            
+            
+            <div class="carousel-item active">
+                <img src="./Slide1.jpg" alt="Slide 1">
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <h1>New Wave Art WKND</h1>
+        <h1> 2 December 2023 - 24 January 2024</h1>
+        <h1>Florida, USA</h1>
+    </div>
+    <div>
+        <p>Held in Palm Beach, focused on "The Freedom of Expression" and featured a range of activities including open studios, gallery visits, panel discussions, and dining experiences. The event aimed to foster connections between artists and patrons while highlighting the local art scene. </p>
+    </div>
+    <!-- Image Collection Section -->
+    <!-- Image Collection Section -->
+    
+    <div class="container gallery-container">
+        <h1 class="text-center mb-4 text-uppercase"> COLLECTION</h1>
+        <div class="line"></div>
+        <div class="row">
+            <!-- Gallery Items -->
+            <!--Row #1-->
+            <div class="col-md-3 col-sm-6 mb-4">
+                 <div class="img-wrapper">
+                <img src="./LifeMovesLikeaRibbonI.jpg" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
+            </div>
+            <p class="mb-2">Life Moves Like a Ribbon I<br>
+                Hand & Machine Embroidered Fabric
+                    <br>137 x 84 cm | 54 x 33 1/8 in<br>
+                     Framed Size: 84 x 138 x 4 cm | 33 1/8 x 54 3/8 x 1 5/8 in</p>
+            </div>
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="img-wrapper">
+                <img src="./LifeMovesLikeaRibbonII.jpg" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
+                 </div>
+                 <p class="mb-2">Life Moves Like a Ribbon II<br>
+                 Hand & Machine Embroidered Fabric
+                    <br>132 x 95 cm | 52 x 37 3/8 in<br>
+                    Framed Size: 136 x 98 x 4 cm | 53 1/2 x 38 5/8 x 1 5/8 in
+        </div>
+
+         <div class="col-md-3 col-sm-6 mb-4">
+                <div class="img-wrapper">
+                <img src="./PrideinMyColourfulWorld.jpg" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
+                 </div>
+                 <p class="mb-2">Pride in My Colourful World<br>
+                 Hand & Machine Embroidered Fabric
+                    <br>141 x 129 cm | 55 1/2 x 50 3/4 in
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+                <div class="img-wrapper">
+                <img src="./Pride in my Colourful Blanket.jpg" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
+                 </div>
+                 <p class="mb-2">Pride in my Colourful Blanket<br>
+                 129 x 91 cm | 50 3/4 x 35 7/8 in<br>
+                 Framed Size: 135 x 95 x 4 cm | 53 1/8 x 37 3/8 x 1 5/8 in
+        </div>
+    </div>
+     <hr>
+    <br>
+   
+
+    <!-- Lightbox (Popup View) -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img">
+    </div>
+    <script>
+        let myVar;
+        
+        function myFunction() {
+          myVar = setTimeout(showPage, );
+        }
+        
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "block";
+        }
+        </script>
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn')
+        const navlinks = document.querySelector('.nav-links')
+    
+        menuBtn.addEventListener('click',()=>{
+            navlinks.classList.toggle('mobile-menu')
+        
+        })
+       </script>
+    <script>
+        function openLightbox(src) {
+            document.getElementById("lightbox-img").src = src;
+            document.getElementById("lightbox").style.display = "flex";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

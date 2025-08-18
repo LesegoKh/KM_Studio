@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+    <style>
+        h1, h4, h2, h3{
+            font-weight:200;
+        }
+        h1 {
+            font-size: 7vmin;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-weight: 300;
+            box-sizing: border-box;
+        }
+
+        .name {
+            align-items: center;
+            justify-content: center;
+            padding-top: 120px;
+        }
+
+        
+        .logo {
+            color: #000000;
+            font-size: xx-large;
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            height: 100vh;
+            overflow-x:hidden;
+        }
+
+        .content {
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 300;
+            font-size: medium;
+            padding: 8px 15px;
+            background: #ff295717;
+            border-radius: 30px;
+            
+        }
+        a:hover {
+            padding: 8px 15px;
+            color: whitesmoke;
+            border-radius: 30px;
+           background-color: #fc036b;
+            text-decoration: underline;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .ctn {
+            padding: 8px 15px;
+            background: #fc036b;
+            border-radius: 30px;
+            color: rgb(252, 252, 252);
+        }
+
+        .active, ul {
+            list-style: none;
+            color: whitesmoke;
+        }
+
+        .active {
+            color: #fc036b;
+            text-decoration: underline;
+            font-weight: bold;
+            list-style: none;
+        }
+
+        .navbar {
+            display: flex;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            justify-content: space-between;
+            padding: 20px;
+            color: whitesmoke;
+        }
+
+        .nav-links li {
+            margin: 0 30px;
+            color: #fc036b;
+        }
+
+        .nav-links {
+            display: flex;
+            position: sticky;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-btn {
+            border-radius: 10px;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            cursor: pointer;
+            display: none;
+        }
+        li:hover {
+            color: #e9e4e6;
+            cursor: pointer;
+        }
+        .modal-layout {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        /* Left column (Details) */
+        .modal-details {
+            flex: 1;
+            text-align: left;
+            color: white;
+        }
+        
+        /* Right column (Image) */
+        .modal-image-container {
+            flex: 2;
+            text-align: center;
+        }
+
+        .modal-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          
+          /* Add animation to "page content" */
+          .animate-bottom {
+            position: relative;
+            -webkit-animation-name: animatebottom;
+            -webkit-animation-duration: 1s;
+            animation-name: animatebottom;
+            animation-duration: 1s;
+          }
+          
+          @-webkit-keyframes animatebottom {
+            from { bottom:-100px; opacity:0 } 
+            to { bottom:0px; opacity:1 }
+          }
+          
+          @keyframes animatebottom { 
+            from{ bottom:-100px; opacity:0 } 
+            to{ bottom:0; opacity:1 }
+          }
+          
+          #myDiv {
+            display: none;
+            text-align: center;
+          }
+
+          #loader {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: 120px;
+            height: 120px;
+            margin: -76px 0 0 -76px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+          }
+          
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+        /* Display Effect */
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+.modal-image-container {
+    flex: 2;
+    text-align: center;
+}
+
+.modal-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Left column (Details) */
+.modal-details {
+    flex: 1;
+    text-align: left;
+    color: white;
+}
+
+
+
+        @media only screen and (max-width: 700px) {
+            li:hover {
+                color: #e9e4e6;
+                cursor: pointer;
+            }
+            .ctn {
+                color: whitesmoke;
+            }
+
+            .modal-layout {
+                flex-direction: column; /* Stack image & details */
+                text-align: center;
+            }
+        
+            .modal-details {
+                text-align: center;
+            }
+
+            body {
+                
+                background-size: cover;
+                height: 100vh;
+                margin: 20px;
+            }
+
+            .navbar {
+                position: absolute;
+            }
+
+            .logo {
+                position: absolute;
+                top: 30px;
+                left: 30px;
+            }
+
+            .nav-links ul li {
+                color: #f3f3f3;
+            }
+            .nav-links {
+                color: #f3f3f3;
+                flex-direction: column;
+                width: 100%;
+                height: 80vh;
+                justify-content: center;
+                background-color: #262a4e;
+                margin-top: -900px;
+                transition: all 0.5s ease;
+                border-bottom-right-radius: 30%;
+            }
+            a:hover {
+                padding: 8px 15px;
+                border-radius: 30px;
+               background-color: #fc036b;
+                text-decoration: underline;
+                font-weight: bold;
+                font-style: italic;
+            }
+            .nav-links.mobile-menu {
+                margin-top: 0;
+                border-bottom-right-radius: 30%
+            }
+            .mobile-menu {
+                margin-top: 0px;
+                border-bottom-right-radius: 30%;
+            }
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links li {
+                margin: 30px auto;
+                color: #f3f3f3;
+            }
+        }
+
+        .row {
+            grid-template-columns: repeat(2, 2fr);
+            display: grid;
+            gap: 30px 10px;
+            margin:10px;
+        }
+        .column {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 95%;
+            height: 550px; 
+            background-color: rgba(255, 234, 238, 0.774);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: box-shadow 0.3s ease; 
+           object-fit: contain;
+           overflow: hidden;
+        }
+
+        .column:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); 
+        }
+
+       .column img {
+            height: 75%;
+            width: 95%;
+            border-radius: 10px;
+           
+        }
+
+        .title {
+            padding-top: 80px;
+        }
+
+        .line {
+            width: 150px;
+            height: 4px;
+            background: #fc036b;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        .footer {
+            left: 0;
+            top: 0;
+            width: 100vw;
+            margin: 20px 0;
+            justify-content: end;
+            align-items: end;
+            background-color: rgba(255, 234, 238, 0.774);
+            padding-bottom: 10px;
+        }
+
+        /* Animations */
+        .column img {
+            transition: transform .3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.1);
+        }
+
+        .ctn:hover {
+            background: whitesmoke;
+            color: #fc036b;
+            box-shadow: 2px 2px 5px black;
+        }
+
+        li:hover {
+            color: #fc036b;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="myFunction()" style="margin:0;">
+    <div id="loader"></div>
+        
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+    <section class="header">
+        <header>
+            <nav class="navbar">
+                <h1 class="logo">KM</h1>
+                <ul class="nav-links">
+                    <li class="active"><a href="../Home/Home.html">HOME</a></li>
+                    <li><a href="../About/About.html">ABOUT</a></li>
+                    <li><a href="../Exhibitions/Exhibitions.html">EXHIBITIONS</a></li>
+                    <li><a href="../Collections/Collections.html">COLLECTIONS</a></li>
+                    <li><a class="ctn" href="../Blog/Blog.html">ARTICLES</a></li>
+                </ul>
+                <img src="./menu.png" alt="menu" class="menu-btn">
+            </nav>
+            <script>
+                let myVar;
+                
+                function myFunction() {
+                  myVar = setTimeout(showPage, 1000);
+                }
+                
+                function showPage() {
+                  document.getElementById("loader").style.display = "none";
+                  document.getElementById("myDiv").style.display = "block";
+                }
+                </script>
+            <script>
+                const menuBtn = document.querySelector('.menu-btn');
+                const navLinks = document.querySelector('.nav-links');
+
+                menuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('mobile-menu');
+                });
+            </script>
+        </header>
+    </section>
+    <section class="title">
+        <h1>COLLECTIONS</h1>
+        <div class="line"></div>
+    </section>
+    
+    <section>
+        <div class="row">
+            <div class="column m-3 p-3" onclick="openModal('./Invelo- I, 2024.jpg')">
+                <img src="./Invelo- I, 2024.jpg" alt="Invelo- I, 2024" class="img">
+                <h3><b>Invelo- I, 2024</b></h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 88 x 66 cm ~ 34 5/8 x 26 in</p>
+            </div>
+        
+            <div class="column m-3 p-3" onclick="openModal('./Invelo - II, 2024.jpg')">
+                <img src="./Invelo - II, 2024.jpg" alt="Invelo - II, 2024" class="img">
+                <h3>Invelo - II, 2024</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 87 x 65 cm ~ 34 1/4 x 25 5/8 in</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="column m-3 p-3" onclick="openModal('./Invelo - III, 2024.jpg')">
+                <img src="./Invelo - III, 2024.jpg" alt="Invelo - III, 2024" class="img">
+                <h3>Invelo - III, 2024</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 141 x 107 cm ~ 55 1/2 x 42 1/8 in</p>
+            </div>
+
+            <div class="column" onclick="openModal('./col3.jpg')">
+                <img src="./col3.jpg" alt="" class="img">
+                <h3>Clearly A Flamboyant Alliance, 2023</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 164 x 139 cm ~ 64 5/8 x 54 3/4 in</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="row">
+            <div class="column" onclick="openModal('./Exuberant Charm, 2023.jpg')">
+                <img src="./Exuberant Charm, 2023.jpg" alt="Exuberant Charm, 2023" class="img">
+                <h3>Exuberant Charm, 2023</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 110 x 97 cm ~ 43 1/4 x 38 1/4 in</p>
+            </div>
+
+            <div class="column" onclick="openModal('./In deep thought - II, 2023.jpg')">
+                <img src="./In deep thought - II, 2023.jpg" alt="In deep thought - II, 2023" class="img">
+                <h3>In deep thought - II, 2023</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 139 x 128 cm ~ 54 3/4 x 50 3/8 in
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section>
+        <div class="row">
+            <div class="column" onclick="openModal('./col4.jpg')">
+                <img src="./col4.jpg" alt="" class="img">
+                <h3>In Pensive Mood, 2024</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 176 x 134 cm ~ 69 1/4 x 52 3/4 in</p>
+            </div>
+        
+            <div class="column" onclick="openModal('./col1.jpg')">
+                <img src="./col1.jpg" alt="" class="img">
+                <h3> In deep thought, 2023</h3>
+                <p>Hand and Machine Stitched Embroidery on Fabric</p>
+                <p>Size: 138 x 136 cm / 54 3/8 x 53 1/2 in</p>
+            </div>
+        </div>
+    </section>
+
+        <script>
+        function openModal(imageSrc) {
+            let lightbox = document.createElement('div');
+            lightbox.classList.add('lightbox');
+            lightbox.innerHTML = `<img src="${imageSrc}" alt="Artwork">`;
+        
+            document.body.appendChild(lightbox);
+        
+            // Close lightbox on click
+            lightbox.addEventListener('click', () => {
+                lightbox.remove();
+            });
+        }
+        
+    </script>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; BlockchainLabs</p>
+    </footer>
+</body>
+</html>
