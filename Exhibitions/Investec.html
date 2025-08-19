@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebullience</title>
+    <title>Seizing The Day</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         * {
             font-weight:200;
         }
-        
-        .gallery-container img{
-            width:100%;
-            height: 100%;
-        }
         .logo {
             
             color: black;
         }
-        
+        h1, h4, h2, h3{
+            font-weight:200;
+        }
+        .img-wrapper {
+  height:350px; /* Choose a fixed height that fits your layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.gallery-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
         a {
             text-decoration: none;
             color: #ffffffdc;
@@ -49,6 +62,7 @@
             border-radius: 5px;
         }
 
+        
         .active {
             color:#fc036b;
             text-decoration: underline;
@@ -139,11 +153,10 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
           }
-          
         
         
 
-        @media only screen and (max-width:500px){
+        @media only screen and (max-width:700px){
 
             .menu-btn {
                 display: block;
@@ -210,7 +223,7 @@
             justify-content: center;
             border-radius: 10px;
             transform:translateY(50px);
-            height: 580px;
+            height: 500px;
             object-fit:contain;
             width: 80%;
 
@@ -218,9 +231,7 @@
 
     
         .gallery-container {
-            padding: 20px 0;
-            width: auto;
-            height: auto;
+            padding: 50px 0;
         }
 
         .gallery-item {
@@ -290,7 +301,7 @@
             <img src="./menu.png" alt="menu" class="menu-btn">
         </nav>
 
-    <!-- Slideshow Section -->
+     <!-- Slideshow Section -->
     <div id="imageCarousel" class="carousel slide py-5" data-bs-ride="carousel">
         <div class="carousel-inner">
             
@@ -308,38 +319,44 @@
         <h1>20 February 2025 – 23 February 2025</h1>
         <h1>Cape Town, South Africa</h1>
     </div>
+    
     <div>
         <p>As Africa’s largest contemporary art fair, it continues to shine as a symbol of artistic excellence and innovation, bridging the gap between local creativity and international curiosity.</p>
     </div>
     <!-- Image Collection Section -->
+    <!-- Image Collection Section -->
     
-    <div class="container gallery-container">
+   <div class="container gallery-container">
         <h1 class="text-center mb-4 text-uppercase"> COLLECTION</h1>
         <div class="line"></div>
         <div class="row">
             <!-- Gallery Items -->
-            
-            <div class="col-md-4 col-sm-6 mb-4">
+            <!--Row #1-->
+            <div class="col-md-3 col-sm-6 mb-4">
                 <img src="./Simply beautiful in nature.png" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
                 <p class="mb-2">Simply Beautiful In Nature I</p>
                 <p>Hand & Machine Stitched Embroidery<br>82 x 59.5 cm</p>
             </div>
-            <div class="col-md-4 col-sm-6 mb-4">
+
+          <div class="col-md-3 col-sm-6 mb-4">
                 <img src="./Simply Beautiful in Nature II.png" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
                 <p>Simply Beautiful In Nature II</p>
                 <p>Hand & Machine Stitched Embroidery<br>84.5 x 62 cm</p>
             </div>
-            <div class="col-md-4 col-sm-6 mb-4">
+
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="img-wrapper">
                 <img src="./Seek in Yourself, 2025.png" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
+               </div>
                 <p>Seek in Yourself</p>
                 <p>Hand & Machine Stitched Embroidery<br>130 x 136.5 cm</p>
             </div>
             
-          
-        </div>
     </div>
-     <br><br>
-           <hr>
+     <hr>
+    <br>
+   
+
     <!-- Lightbox (Popup View) -->
     <div class="lightbox" id="lightbox">
         <span class="close" onclick="closeLightbox()">&times;</span>
