@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Expo Chicago</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-         h1, h4, h2{
+        * {
             font-weight:200;
         }
-        h4 {
-            font-weight: 400;
+        .logo {
+            
+            color: black;
         }
-
-         .img-wrapper {
+        h1, h4, h2, h3{
+            font-weight:200;
+        }
+        .img-wrapper {
   height:350px; /* Choose a fixed height that fits your layout */
   display: flex;
   align-items: center;
@@ -22,26 +25,12 @@
   border-radius: 10px;
 }
 
-        .text-box {
-            width: 50%;
-            background:none;
-            padding: 10px;
-            border-radius: 10px;
-            transform: translateY(-100px);
-        }
+.gallery-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
 
-        .text-box h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .text-box p {
-            font-size: 1.2rem;
-        }
-        img {
-            border-radius: 10px;
-        }
-        
         a {
             text-decoration: none;
             color: #ffffffdc;
@@ -71,11 +60,8 @@
             margin: 10px auto;
             border-radius: 5px;
         }
-        img.right  {
-            height:70%;
-            width:95%;
-        }
 
+        
         .active {
             color:#fc036b;
             text-decoration: underline;
@@ -85,7 +71,8 @@
         .navbar {
             display:flex;
             position: fixed;
-            top: -50px;
+            top: 0;
+            z-index:1000;
             left: 0;
             display: flex;
             width: 100%;
@@ -103,6 +90,7 @@
             display: flex;
             align-items: center;
         }
+
         .ctn {
             padding:  8px 15px;
             background: #fc036b;
@@ -117,11 +105,6 @@
             animation-duration: 1s;
           }
           
-          h1 {
-            font-size: 7vmin;
-            margin-top: 50px;
-            margin-bottom: 30px;
-        }
         .menu-btn {
             position: absolute;
             top: 30px;
@@ -130,7 +113,8 @@
             cursor: pointer;
             display: none;
         }
-          @-webkit-keyframes animatebottom {
+
+        @-webkit-keyframes animatebottom {
             from { bottom:-100px; opacity:0 } 
             to { bottom:0px; opacity:1 }
           }
@@ -158,7 +142,7 @@
             -webkit-animation: spin 2s linear infinite;
             animation: spin 2s linear infinite;
           }
-          
+
           @-webkit-keyframes spin {
             0% { -webkit-transform: rotate(0deg); }
             100% { -webkit-transform: rotate(360deg); }
@@ -168,53 +152,29 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
           }
-        .hero {
-            height: 100vh;
-            width: 100vw;
-            background: url('./KimHomePage.avif') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        .full-bg {
-            height: 100vh;
-            width: 100vw;
-            background: url('./Explore.avif') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-           
-           
-            color: white;
-        }
+        
         
 
         @media only screen and (max-width:700px){
-            .header-content {
-                margin-top: 250px;
-            }
-            .text-box {
-                width: 60%;
-                height: 40%;
-            }
+
             .menu-btn {
                 display: block;
-                top:60px;
+                top:20px;
                 right:0;
             }
             
             .navbar {
+                position: fixed;
                 padding: 0;
                 align-items: center;
                 justify-content: space-between;
-                position: fixed;
             }
+
             .logo {
                 font-weight: 200;
                 position: absolute;
-                top: 30px;
-                left: 30px;
+                top: 5px;
+                left: 10px;
                 color: black;
             }
            
@@ -240,33 +200,12 @@
             .nav-links li {
                 margin:30px auto;
             }
-            /* Events*/
-            .row {
-                flex-direction: column;
-            }
-            .col img {
-                max-width: 90%;
-                height: 90%;
-            }
-            .row .col {
-                margin:20px auto;
-            }
-           
-        
-           
-           
+
             .footer {
                 padding: 10px;
             }
         }
         
-        /* Animations */
-        img {
-            transition: transform .3s ease;
-        }
-        img:hover {
-            transform: scale(1.1);
-        }
         .ctn:hover {
             background: whitesmoke;
             color: #fc036b;
@@ -278,71 +217,152 @@
             cursor: pointer;
         }
         
+        .carousel-item img {
+            align-items:center;
+            justify-content: center;
+            border-radius: 10px;
+            transform:translateY(50px);
+            height: 500px;
+            object-fit:contain;
+            width: 80%;
+
+        }
+
+    
+        .gallery-container {
+            padding: 50px 0;
+        }
+
+        .gallery-item {
+            padding-bottom:10px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            font-weight:200;
+            padding-top: 10px;
+        }
+
+        
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 500px) {
+            .col-md-3 {
+                width: 100%;
+            }
+        }
     </style>
 </head>
-<!--Loader-->
 <body onload="myFunction()" style="margin:0;">
     <div id="loader"></div>
-        
-        <div style="display:none;" id="myDiv" class="animate-bottom">
-    <!--Navbar Below-->
 
-    <nav class="navbar">
-        <h1 class="logo">KM</h1>
-        <ul class="nav-links">
-            <li class="active"><a href="#">HOME</a></li>
-            <li><a href="../About/About.html">ABOUT</a></li>
-            <li><a href="../Exhibitions/Exhibitions.html">EXHIBITIONS</a></li>
-            <li><a href="../Collage/collage1.html">COLLECTIONS</a></li>
-            <li><a class="ctn" href="../Blog/Blog.html">ARTICLES</a></li>
-        </ul>
-        <img src="./menu.png" alt="menu" class="menu-btn">
-    </nav>
-    <!-- Section 1: Hero Section -->
-    
-    <section class="hero">
-        <div class="explore-text">
-            <h2 class="explore-sent">Explore the colourful World!</h2>
-            <div class="line"></div>
-            <h1>A WONDERFUL GIFT</h1>
-            <a href="../Collage/collage1.html" class="ctn">Learn More</a>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+
+        <nav class="navbar">
+            <h1 class="logo">KM</h1>
+            <ul class="nav-links">
+                <li class="active"><a href="../../Home/Home.html">HOME</a></li>
+                <li><a href="../../About/About.html">ABOUT</a></li>
+                <li><a href="../Exhibitions/Exhibitions.html">EXHIBITIONS</a></li>
+                <li><a href="../Collage/collage1.html">COLLECTIONS</a></li>
+                <li><a class="ctn" href="../Blog/Blog.html">ARTICLES</a></li>
+            </ul>
+            <img src="../menu.png" alt="menu" class="menu-btn">
+        </nav>
+
+     <!-- Slideshow Section -->
+    <div id="imageCarousel" class="carousel slide py-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            
+            
+            <div class="carousel-item active">
+                <img src="./EXPO_Chicago_2024_Slide1.webp" alt="Slide 1">
+            </div>
+
+             <div class="carousel-item">
+                <img src="./EXPO_Chicago_2024_Slide2.webp" alt="Slide 2">
+            </div>
         </div>
-    </section>
+        <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <h1>EXPO Chicago</h1>
+        <h1>11 April 2024 – 14 April 2024  </h1>
+        <h1>CHICAGO, USA</h1>
+    </div>
+    <div>
+        <p> Featuring 170 exhibitors from 29 countries and 75 cities. EXPO Chicago draws upon the city’s rich history as a vibrant international cultural destination,<br> while highlighting the region’s contemporary arts community. </p>
+    </div>
+    <!-- Image Collection Section -->
+    <!-- Image Collection Section -->
     
-    <!-- Section 2: Two Image Columns -->
-    <section class="container">
-        <h1 class="text-center">RECENT EXHIBITIONS</h1>
+    <div class="container gallery-container">
+        <h1 class="text-center mb-4 text-uppercase"> COLLECTION</h1>
         <div class="line"></div>
         <div class="row">
-            <div class="col-md-6 mb-3"><img src="./KH_Seizing The Day.avif" class="img-fluid" alt="Image 1">
-                <h4>Seizing The Day - West Palm Beach, Florida, USA</h4>
-            <p>Goddess- figures appear within luscious woven landscapes, their bodies wrapped in boldly patterned fabrics and embellished with golden jewellery.</p>
-                <a href="../Exhibitions/Seizing_The_Day/index.html" class="ctn">Learn More</a>
+            <!-- Gallery Items -->
+            <!--Row #1-->
+            <div class="col-md-3 col-sm-6 mb-4">
+                 <div class="img-wrapper">
+                <img src="./Sisters_In_Unison_II.png" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
             </div>
-            
-            <div class="col-md-6 mb-3">
-                
-                <img src="./Investec_Art Fair.avif" class="img-fluid right" alt="Image 2">
-                
-                <h4>Investec Art Fair - Cape Town</h4>
-            <p>Africa's largest art fair. It offers a platform for galleries, collectors and artists from around the globe.</p>
-            
-                <a href="../Exhibitions/Investec/index.html" class="ctn">Learn More</a>
+            <p class="mb-2">Sisters in Unison II</p>
+                <p>Machine & Hand Stitched Embroidery on Fabric
+                    <br>82 x 59.5 cm | Framed: 93.5 x 71.5 x 5.5 cm</p>
             </div>
-            
-        </div>
-    </section>
-    
-    <!-- Section 3: Background Image with Bottom Left Text -->
-    <section class="full-bg">
-        <div class="text-box">
-            <h1>EXPLORE HER WORLD</h1>
-            <div class="line"></div>
-            <p>Kimathi Mafafo was finalist for the Ares Art Prize (2022) and the recipient of the Norval Foundation Sovereign Art Prize (2022).</p>
-        <a href="../Blog/Blog.html" class="ctn">Learn More</a>
-        </div>
-    </section>
 
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="img-wrapper">
+                <img src="./Sisters_In_Unison_III.png" class="img-fluid gallery-item" onclick="openLightbox(this.src)">
+                 </div>
+                 <p class="mb-2">Sisters in Unison III<br>
+                Machine & Hand Stitched Embroidery on Fabric 
+                    <br>76 2/5 × 54 7/10 in | 194 × 139 cm</p>
+        </div>
+    </div>
+     <hr>
+    <br>
+   
+
+    <!-- Lightbox (Popup View) -->
+    <div class="lightbox" id="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img">
+    </div>
     <script>
         let myVar;
         
@@ -365,6 +385,17 @@
         
         })
        </script>
+    <script>
+        function openLightbox(src) {
+            document.getElementById("lightbox-img").src = src;
+            document.getElementById("lightbox").style.display = "flex";
+        }
+
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

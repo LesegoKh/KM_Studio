@@ -6,7 +6,7 @@
 <title>Exhibitions</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-   
+    
     .investec-img { height:65%; width:90%; }
     .logo { color: black; }
     h1, h4, h2, h3{ font-weight:200; }
@@ -113,22 +113,22 @@
     const navlinks = document.querySelector('.nav-links')
     menuBtn.addEventListener('click',()=>{ navlinks.classList.toggle('mobile-menu') })
 
-    // ---------- Exhibitions  ----------
+    // ---------- Exhibitions Data ----------
     const exhibitions = [
-        {title:"Seizing The Day", location:"FLORIDA, USA", year:2025, desc:"Seizing the Day, celebrates the natural world as a powerful source for inspiration, strength and learning.", img:"./KH_Seizing The Day_converted.avif", link:"./Seizing_The_Day/index.html"},
-        {title:"Investec Art Fair", location:"CAPE TOWN, RSA", year:2025, desc:"Africa's largest art fair. It offers a platform for galleries, collectors and artists from around the globe.", img:"./Investec_Art Fair_converted.avif", link:"./Investec/index.html"},
-        {title:"EXPO Chicago", location:"CHICAGO, USA", year:2025, desc:"EXPO CHICAGO is an international contemporary and modern art exhibition held each year in Chicago, Illinois.", img:"./Chicago_Expo_converted.avif", link:"./EXPO_Chicago/index.html"},
-        {title:"Ebullience", location:"LONDON, UK", year:2024, desc:"Woven portraits of illuminated women appear in a swirl of flowers and foliage, colourful patterns and textures.", img:"./Ebullience_Slide1_converted.avif", link:"./Ebulience/index.html"},
-        {title:"The Armory Show", location:"NEW YORK, USA", year:2024, desc:"Brings the world’s leading international contemporary and modern art galleries to New York each year.", img:"./Armory 2024_converted.avif", link:"./The Armory/index.html"},
-        {title:"EXPO Chicago", location:"CHICAGO, USA", year:2024, desc:"Art from around the globe, along with the who's who of the art world. - The Midwest's largest art fair.", img:"./EXPO-CHGO-2024-logo_converted.avif", link:"./EXPO_Chicago_2024/EXPO_Chicago_2024.html"},
-        {title:"Wandering In The Unknown World", location:"FLORIDA, USA", year:2023, desc:"Draws on the philosophies of Romanticism, which emerged in the 18th century.", img:"./Wandering/Kimathi Mafafo - wandering in the unknown world (1)_page-0001.jpg", link:"./Wandering/index.html"},
-        {title:"Kgolagano, A Covenant", location:"CAPE TOWN, RSA", year:2022, desc:"The exhibition housed elaborate tapestries which serve to embody affirmation of our existence.", img:"./KgolaganoCover_converted.avif", link:"./Kgolagano/index.html"},
-        {title:"Art Dubai", location:"DUBAI, UAE", year:2023, desc:"One of the world’s most international art fairs,its enchanced its commitment to cultivating a culture of discovery.", img:"./ArtDubai/artDubaiCov_converted.avif", link:"./ArtDubai/index.html"},
-        {title:"New Wave Art WKND", location:"FLORIDA, USA", year:2023, desc:"Founded by gallerist Sarah Gavlak, this year’s theme is “Freedom of Expression,”", img:"./NWAW/NWAW_converted.avif", link:"../Exhibitions/NWAW/index.html"},
-        {title:"Facing the Sun", location:"BERLIN, GERMANY", year:2021, desc:"A Summer exhibition that will fill the historic buildings and surrounding gardens with diverse artworks.", img:"../Exhibitions/Facing_The_Sun/Facing_The_Sun_Cover_converted.avif", link:"../Exhibitions/Facing_The_Sun/index.html"},
-        {title:"Devil's In The Detail", location:"LONDON, UK", year:2020, desc:"Devil's in the Detail is an exhibition that celebrates creativity: the ambiguous, the strange, the various and the bold.", img:"../Exhibitions/Devils_In_The_Details/The Girl in the Enchanted Garden II, 2020_converted.avif", link:"./Devils_In_The_Details/Devils_In_The_Details/index.html"},
-        {title:"Gestures From The Awakened Mind", location:"LONDON, UK", year:2021, desc:"Solo show \"Gestures From the Awakened Mind\" by Kimathi Mafafo", img:"../Exhibitions/Gestures/GesturesCover_converted.avif", link:"./Gestures/index.html"},
-        {title:"Art Paris", location:"PARIS", year:2022, desc:"Featured 130 modern and contemporary art galleries from around 20 countries.", img:"./Art Paris/ArtParisCover_converted.avif", link:"./Art Paris/index.html"}
+        {title:"Seizing The Day", location:"FLORIDA, USA", year:2025, desc:"Seizing the Day, celebrates the natural world as a powerful source for inspiration, strength and learning.", img:"./KH_Seizing The Day_converted.avif", link:"./Seizing_The_Day/Seizing the day.html"},
+        {title:"Investec Art Fair", location:"CAPE TOWN, RSA", year:2025, desc:"Africa's largest art fair. It offers a platform for galleries, collectors and artists from around the globe.", img:"./Investec_Art Fair_converted.avif", link:"./Investec.html"},
+        {title:"EXPO Chicago", location:"CHICAGO, USA", year:2025, desc:"EXPO CHICAGO is an international contemporary and modern art exhibition held each year in Chicago, Illinois.", img:"./Chicago_Expo_converted.avif", link:"./EXPO_Chicago/EXPO_Chicago_2025.html"},
+        {title:"Ebullience", location:"LONDON, UK", year:2024, desc:"Woven portraits of illuminated women appear in a swirl of flowers and foliage, colourful patterns and textures.", img:"./Ebullience_Slide1_converted.avif", link:"./Ebullience(1).html"},
+        {title:"The Armory Show", location:"NEW YORK, USA", year:2024, desc:"Brings the world’s leading international contemporary and modern art galleries to New York each year.", img:"./Armory 2024_converted.avif", link:"./The Armory.html"},
+        {title:"EXPO Chicago", location:"CHICAGO, USA", year:2024, desc:"Art from around the globe, along with the who's who of the art world. - The Midwest's largest art fair.", img:"./EXPO-CHGO-2024-logo_converted.avif", link:"./EXPO_Chicago_2024.html"},
+        {title:"Wandering In The Unknown World", location:"FLORIDA, USA", year:2023, desc:"Draws on the philosophies of Romanticism, which emerged in the 18th century.", img:"./Wandering/Kimathi Mafafo - wandering in the unknown world (1)_page-0001.jpg", link:"./wandering.html"},
+        {title:"Kgolagano, A Covenant", location:"CAPE TOWN, RSA", year:2022, desc:"The exhibition housed elaborate tapestries which serve to embody affirmation of our existence.", img:"./KgolaganoCover_converted.avif", link:"./Kgolagano.html"},
+        {title:"Art Dubai", location:"DUBAI, UAE", year:2023, desc:"One of the world’s most international art fairs,its enchanced its commitment to cultivating a culture of discovery.", img:"./ArtDubai/artDubaiCov_converted.avif", link:"./ArtDubai/ArtDubai.html"},
+        {title:"New Wave Art WKND", location:"FLORIDA, USA", year:2023, desc:"Founded by gallerist Sarah Gavlak, this year’s theme is “Freedom of Expression,”", img:"./NWAW/NWAW_converted.avif", link:"../Exhibitions/NWAW/nwaw.html"},
+        {title:"Facing the Sun", location:"BERLIN, GERMANY", year:2021, desc:"A Summer exhibition that will fill the historic buildings and surrounding gardens with diverse artworks.", img:"../Exhibitions/Facing_The_Sun/Facing_The_Sun_Cover_converted.avif", link:"../Exhibitions/Facing_The_Sun/Facing_The_Sun.html"},
+        {title:"Devil's In The Detail", location:"LONDON, UK", year:2020, desc:"Devil's in the Detail is an exhibition that celebrates creativity: the ambiguous, the strange, the various and the bold.", img:"../Exhibitions/Devils_In_The_Details/The Girl in the Enchanted Garden II, 2020_converted.avif", link:"./Devils_In_The_Details/Devils_In_The_Details.html"},
+        {title:"Gestures From The Awakened Mind", location:"LONDON, UK", year:2021, desc:"Solo show \"Gestures From the Awakened Mind\" by Kimathi Mafafo", img:"../Exhibitions/Gestures from the awakened mind/GesturesCover_converted.avif", link:"../Exhibitions/Gestures from the awakened mind/Gestures from the awakened mind.html"},
+        {title:"Art Paris", location:"PARIS", year:2022, desc:"Featured 130 modern and contemporary art galleries from around 20 countries.", img:"../Exhibitions/Art Paris/ArtParisCover_converted.avif", link:"./Art Paris/Art Paris.html"}
     ];
 
     // Sort latest first
